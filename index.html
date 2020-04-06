@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Главная</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Main">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+ </head>
+ <body>
+     <section class="main hl">
+         <div class="main_wrp container mt-4">
+            <h1 class="main__title hl_short d-inline-block">
+                Конструктор приписок
+            </h1>
+            <p class="main__note mt-32">
+                Выберите набор предложенных опций из списка ниже: 
+            </p>
+            <div class="main_row row">
+                <div class="main-options col-xl-9 mt-4">
+                    <h3 class="main-options__title">
+                        Опции:
+                    </h3>
+                    <div class="main-options_wrp main_border mt-4">
+                        <div class="main-options-left">
+                            <h4 class="main-options__subtitle font-weight-bold">
+                                Основные:
+                            </h4>
+                            <div class="main-options_input-wrp mt-3">
+                                <label class="main-tooltip d-block">
+                                    Надпись:
+                                </label>
+                                <textarea id="sidenote" class="textarea_big mt-2"></textarea>
+                            </div>
+                            <div class="main-options_input-wrp mt-3">
+                                <label class="d-block">
+                                    Размер шрифта (px):     
+                                </label>
+                                <input class="main-input mt-2" type="number" value="">
+                            </div>
+                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                                <label class="">
+                                    Цвет надписи:    
+                                </label>
+                                <input class="main-input_color" type="color" value="#55E7A0">
+                            </div>
+                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                                <label class="">
+                                    Фоновый цвет:    
+                                </label>
+                                <input class="main-input_color ml-auto" type="color" value="#DADADA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-preview col-xl-3">
+
+                </div>
+            </div>
+         </div> 
+     </section>
+     <script src="js/script.js"></script>
+</body>

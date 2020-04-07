@@ -28,6 +28,21 @@ h3 {
     margin-top: 2rem !important;
 }
 
+.btn {
+    background-color: #374A8D;
+    min-width: 200px;
+    padding: 0.7rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: white;
+    letter-spacing: 0.05em;
+}
+
+.btn:hover {
+    color: white;
+    box-shadow: 0px 0px 2px 4px rgba(55, 74, 141, 0.75);
+}
+
 /* Horizontal lines on titles */
 
 .hl, .hl_short {
@@ -85,11 +100,14 @@ h3 {
     height: 70px;
     width: 100%;
     padding-left: 0.5rem;
+    display: block;
 }
 
 .textarea_big:focus,
 .main-input:focus {
-    outline: 2px solid #374A8D;
+    box-shadow: 0px 0px 1px 1px #374A8D;
+    outline: none;
+    transition: 0.3s;
 }
 
 .main-input {
@@ -108,9 +126,14 @@ h3 {
 
 /************* Main section *************/
 
+.main-options_wrp {
+    min-height: 600px;
+}
+
 .main-options-left,
 .main-options-right {
     max-width: 310px;
+    min-width: 310px;
 }
 
 .main-input_color {
@@ -125,4 +148,42 @@ h3 {
     background-color: #DADADA;
     top: 0px;
     left: 0px;
+}
+
+.main-options_color-wrp  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 210px;
+}
+
+.main-options-left_bottom-wrp {
+    margin-top: 70px;
+}
+
+/* Checkbox fixes */
+
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: #374A8D;
+    background-color: #374A8D;
+    width: 22px;
+    height: 22px;
+}
+
+.custom-checkbox .custom-control-label::before,
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    width: 22px;
+    height: 22px;
+}
+
+/* Sidenote default */
+
+.sidenote {
+    background-color: #2EB7B4;
+    text-align: center;
+    color: white;
+    max-width: 277px;
+    font-size: 14px;
+    line-height: 20px;
+    transition: 0.2s;
 }

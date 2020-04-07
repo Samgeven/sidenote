@@ -20,45 +20,119 @@
                 Выберите набор предложенных опций из списка ниже: 
             </p>
             <div class="main_row row">
-                <div class="main-options col-xl-9 mt-4">
-                    <h3 class="main-options__title">
-                        Опции:
-                    </h3>
-                    <div class="main-options_wrp main_border mt-4">
+                <div class="main-options col-xl-8">
+                    <div class="main-options_wrp main_border d-flex justify-content-between mt-4">
                         <div class="main-options-left">
+                            <div class="main-options-left_top-wrp">
+                                <h4 class="main-options__subtitle font-weight-bold">
+                                    Основные:
+                                </h4>
+                                <div class="main-options_input-wrp mt-3">
+                                    <label class="main-tooltip d-block">
+                                        Надпись:
+                                    </label>
+                                    <textarea id="sidenote" class="textarea_big mt-2"></textarea>
+                                </div>
+                                <div class="main-options_input-wrp mt-3">
+                                    <label class="d-block" for="fontSize">
+                                        Размер шрифта (px):     
+                                    </label>
+                                    <input id="fontSize" class="main-input mt-2" type="number" value="">
+                                </div>
+                                <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                                    <label for="sidenoteColor">
+                                        Цвет надписи:    
+                                    </label>
+                                    <input id="sidenoteColor" class="main-input_color" type="color" value="#55E7A0">
+                                </div>
+                                <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                                    <label for="bgColor">
+                                        Фоновый цвет:    
+                                    </label>
+                                    <input id="bgColor" class="main-input_color" type="color" value="#DADADA">
+                                </div>
+                            </div>
+                            <div class="main-options-left_bottom-wrp">
+                                <h4 class="main-options__subtitle font-weight-bold">
+                                    Эффекты при наведении:
+                                </h4>
+                                <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
+                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="blur">
+                                    <label class="custom-control-label pl-3" for="blur">
+                                        Размытие бэкграунда
+                                    </label>
+                                </div>
+                                <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
+                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="shining">
+                                    <label class="custom-control-label pl-3" for="shining">
+                                        Сияние  
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-options-right">
                             <h4 class="main-options__subtitle font-weight-bold">
-                                Основные:
+                                Дополнительные:
                             </h4>
-                            <div class="main-options_input-wrp mt-3">
-                                <label class="main-tooltip d-block">
-                                    Надпись:
+                            <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
+                                <input class="main-input_checkbox custom-control-input" type="checkbox" id="setBorder">
+                                <label class="custom-control-label pl-3" for="setBorder">
+                                    Установить границу  
                                 </label>
-                                <textarea id="sidenote" class="textarea_big mt-2"></textarea>
+                            </div>
+                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                                <label for="borderColor">
+                                    Цвет границы:    
+                                </label>
+                                <input id="borderColor" class="main-input_color" type="color" value="#DADADA">
+                            </div>
+                            <div class="main-options_input-wrp mt-3">
+                                <label class="d-block" for="borderWidth">
+                                    Толщина границы (px):     
+                                </label>
+                                <input id="borderWidth" class="main-input mt-2" type="number" value="" min="0" max="12">
+                            </div>
+                            <div class="main-options_input-wrp mt-3">
+                                <label class="d-block" for="rounding">
+                                    Скругление (px):     
+                                </label>
+                                <input id="rounding" class="main-input mt-2" type="number" value="" min="0" max="20">
+                            </div>
+                            <div class="main-options_input-wrp custom-control custom-checkbox mt-4">
+                                <input class="main-input_checkbox custom-control-input" type="checkbox" id="bubbleOn">
+                                <label class="custom-control-label pl-3" for="bubbleOn">
+                                    Всплывающее окно
+                                </label>
+                            </div>
+                            <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
+                                <input class="main-input_checkbox custom-control-input" type="checkbox" id="copyCode">
+                                <label class="custom-control-label pl-3" for="copyCode">
+                                    Копировать промокод
+                                </label>
                             </div>
                             <div class="main-options_input-wrp mt-3">
                                 <label class="d-block">
-                                    Размер шрифта (px):     
+                                    Текст всплывашки:
                                 </label>
-                                <input class="main-input mt-2" type="number" value="">
-                            </div>
-                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
-                                <label class="">
-                                    Цвет надписи:    
-                                </label>
-                                <input class="main-input_color" type="color" value="#55E7A0">
-                            </div>
-                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
-                                <label class="">
-                                    Фоновый цвет:    
-                                </label>
-                                <input class="main-input_color ml-auto" type="color" value="#DADADA">
+                                <textarea id="bubbleText" class="textarea_big mt-2"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="main-preview col-xl-3">
-
+                <div class="main-preview col-xl-4">
+                    <div class="main-preview_wrp main-options_wrp main_border mt-4">
+                        <div class="sidenote_wrp">
+                            <div class="sidenote">
+                                Your sidenote
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="btn_wrp mt-5 text-center">
+                <button class="btn">
+                    Готово
+                </button>
             </div>
          </div> 
      </section>

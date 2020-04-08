@@ -186,4 +186,23 @@ h3 {
     font-size: 14px;
     line-height: 20px;
     transition: 0.2s;
+    border-style: solid;
+    padding: 2px;
+}
+
+.blured:hover {
+    filter: blur(1px);
+    box-shadow: 0 0 10px 3px #2BB7B5;
+    transition: 0.2s;
+}
+
+.shining {
+    background: linear-gradient(90deg, rgba(39,150,157,1) 70%, rgba(89,187,193,1) 75%, rgba(39,150,157,1) 100%);
+    background-size: 300% 100%;
+    transition: 0.6s;
+}
+
+.shining:hover {
+    background-position: 200% 0;
+    transition: 1s;
 }

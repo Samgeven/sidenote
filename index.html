@@ -37,19 +37,19 @@
                                     <label class="d-block" for="fontSize">
                                         Размер шрифта (px):     
                                     </label>
-                                    <input id="fontSize" class="main-input mt-2" type="number" value="">
+                                    <input id="fontSize" name="font-size" class="main-input mt-2" type="number" value="" data-sizing="px">
                                 </div>
                                 <div class="main-options_input-wrp main-options_color-wrp mt-3">
                                     <label for="sidenoteColor">
                                         Цвет надписи:    
                                     </label>
-                                    <input id="sidenoteColor" class="main-input_color" type="color" value="#55E7A0">
+                                    <input id="sidenoteColor" name="color" class="main-input_color" type="color" value="#55E7A0">
                                 </div>
                                 <div class="main-options_input-wrp main-options_color-wrp mt-3">
                                     <label for="bgColor">
                                         Фоновый цвет:    
                                     </label>
-                                    <input id="bgColor" class="main-input_color" type="color" value="#DADADA">
+                                    <input id="bgColor" name="background-color" class="main-input_color" type="color" value="#DADADA">
                                 </div>
                             </div>
                             <div class="main-options-left_bottom-wrp">
@@ -57,13 +57,13 @@
                                     Эффекты при наведении:
                                 </h4>
                                 <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
-                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="blur">
+                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="blur" name="blured" data-role="effect">
                                     <label class="custom-control-label pl-3" for="blur">
                                         Размытие бэкграунда
                                     </label>
                                 </div>
                                 <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
-                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="shining">
+                                    <input class="main-input_checkbox custom-control-input" type="checkbox" id="shining" name="shining" data-role="effect">
                                     <label class="custom-control-label pl-3" for="shining">
                                         Сияние  
                                     </label>
@@ -84,19 +84,19 @@
                                 <label for="borderColor">
                                     Цвет границы:    
                                 </label>
-                                <input id="borderColor" class="main-input_color" type="color" value="#DADADA">
+                                <input id="borderColor" name="border-color" class="main-input_color" type="color" value="#DADADA" data-disabler="border" disabled="disabled">
                             </div>
                             <div class="main-options_input-wrp mt-3">
                                 <label class="d-block" for="borderWidth">
                                     Толщина границы (px):     
                                 </label>
-                                <input id="borderWidth" class="main-input mt-2" type="number" value="" min="0" max="12">
+                                <input id="borderWidth" name="border-width" class="main-input mt-2" type="number" value="" min="0" max="12" data-sizing="px" data-disabler="border" disabled="disabled">
                             </div>
                             <div class="main-options_input-wrp mt-3">
                                 <label class="d-block" for="rounding">
                                     Скругление (px):     
                                 </label>
-                                <input id="rounding" class="main-input mt-2" type="number" value="" min="0" max="20">
+                                <input id="rounding" name="border-radius" class="main-input mt-2" type="number" value="" min="0" max="20" data-sizing="px">
                             </div>
                             <div class="main-options_input-wrp custom-control custom-checkbox mt-4">
                                 <input class="main-input_checkbox custom-control-input" type="checkbox" id="bubbleOn">

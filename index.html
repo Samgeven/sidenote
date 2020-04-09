@@ -27,11 +27,14 @@
                                 <h4 class="main-options__subtitle font-weight-bold">
                                     Основные:
                                 </h4>
-                                <div class="main-options_input-wrp mt-3">
-                                    <label class="main-tooltip d-block">
-                                        Надпись:
-                                    </label>
-                                    <textarea id="sidenote" class="textarea_big mt-2"></textarea>
+                                <div class="main-options_input-wrp options-tooltip mt-3">
+                                    <div class="tooltip_wrp sidenote-tooltip_wrp">
+                                        <label class="main-tooltip d-block">
+                                            Надпись:
+                                        </label>
+                                        <div class="tooltiptext">Можно вставлять исходный код</div>
+                                    </div>
+                                    <textarea id="sidenoteArea" class="textarea_big mt-2"></textarea>
                                 </div>
                                 <div class="main-options_input-wrp mt-3">
                                     <label class="d-block" for="fontSize">
@@ -43,13 +46,13 @@
                                     <label for="sidenoteColor">
                                         Цвет надписи:    
                                     </label>
-                                    <input id="sidenoteColor" name="color" class="main-input_color" type="color" value="#55E7A0">
+                                    <input id="sidenoteColor" name="color" class="main-input_color main-input_sd-color" type="color" value="#55E7A0" data-variable="sdnote-color">
                                 </div>
                                 <div class="main-options_input-wrp main-options_color-wrp mt-3">
                                     <label for="bgColor">
                                         Фоновый цвет:    
                                     </label>
-                                    <input id="bgColor" name="background-color" class="main-input_color" type="color" value="#DADADA">
+                                    <input id="bgColor" name="background-color" class="main-input_color main-input_bg-color" type="color" value="#DADADA" data-variable="sdnote-bg-color">
                                 </div>
                             </div>
                             <div class="main-options-left_bottom-wrp">
@@ -80,17 +83,17 @@
                                     Установить границу  
                                 </label>
                             </div>
-                            <div class="main-options_input-wrp main-options_color-wrp mt-3">
+                            <div class="main-options_input-wrp main-options_color-wrp mt-3 d-flex">
+                                <input id="borderColor" name="border-color" class="main-input_color main-input_border-color order-2" type="color" value="#DADADA" data-disabler="border" data-variable="sdnote-border-color" disabled="disabled">
                                 <label for="borderColor">
                                     Цвет границы:    
                                 </label>
-                                <input id="borderColor" name="border-color" class="main-input_color" type="color" value="#DADADA" data-disabler="border" disabled="disabled">
                             </div>
-                            <div class="main-options_input-wrp mt-3">
+                            <div class="main-options_input-wrp mt-3 d-flex flex-column">
+                                <input id="borderWidth" name="border-width" class="main-input mt-2 order-2" type="number" value="" min="0" max="12" data-sizing="px" data-disabler="border" disabled="disabled">
                                 <label class="d-block" for="borderWidth">
                                     Толщина границы (px):     
                                 </label>
-                                <input id="borderWidth" name="border-width" class="main-input mt-2" type="number" value="" min="0" max="12" data-sizing="px" data-disabler="border" disabled="disabled">
                             </div>
                             <div class="main-options_input-wrp mt-3">
                                 <label class="d-block" for="rounding">
@@ -105,23 +108,29 @@
                                 </label>
                             </div>
                             <div class="main-options_input-wrp custom-control custom-checkbox mt-3">
-                                <input class="main-input_checkbox custom-control-input" type="checkbox" id="copyCode">
+                                <input class="main-input_checkbox custom-control-input" type="checkbox" id="copyCode" data-disabler="bubble" disabled>
                                 <label class="custom-control-label pl-3" for="copyCode">
                                     Копировать промокод
                                 </label>
                             </div>
-                            <div class="main-options_input-wrp mt-3">
+                            <div class="main-options_input-wrp bubble_wrp mt-3" id="bubbleWrp">
+                                <textarea id="bubbleText" class="textarea_big mt-2 order-2" data-disabler="bubble" disabled></textarea>
                                 <label class="d-block">
                                     Текст всплывашки:
                                 </label>
-                                <textarea id="bubbleText" class="textarea_big mt-2"></textarea>
+                            </div>
+                            <div class="main-options_input-wrp textarea_code mt-3" id="textareaCode">
+                                <label class="d-block">
+                                    Промокод:
+                                </label>
+                                <textarea id="promocode" class="textarea_big mt-2"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="main-preview col-xl-4">
                     <div class="main-preview_wrp main-options_wrp main_border mt-4">
-                        <div class="sidenote_wrp">
+                        <div class="sidenote_wrp sidenote-tooltip_wrp" id="sidenoteCont">
                             <div class="sidenote" id="sideNote">
                                 Your sidenote
                             </div>
@@ -129,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="btn_wrp mt-5 text-center">
+            <div class="btn_wrp mt-5 mb-5 text-center">
                 <button class="btn">
                     Готово
                 </button>
@@ -138,3 +147,4 @@
      </section>
      <script src="js/script.js"></script>
 </body>
+       

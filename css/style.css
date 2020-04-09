@@ -1,5 +1,11 @@
 /*************** Common *****************/
 
+:root {
+    --sdnote-color: #ffffff;
+    --sdnote-bg-color: #2EB7B4;
+    --sdnote-border-color: #ffffff;
+}
+
 body {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.5rem;
@@ -24,6 +30,11 @@ h3 {
     font-weight: bold;
 }
 
+textarea {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
 .mt-32 {
     margin-top: 2rem !important;
 }
@@ -42,6 +53,18 @@ h3 {
     color: white;
     box-shadow: 0px 0px 2px 4px rgba(55, 74, 141, 0.75);
 }
+
+input[type="number"],
+textarea[disabled] {
+    background-color: inherit;
+    border: 1px solid #a4a4a4;
+}
+
+input[disabled] + label,
+textarea[disabled] + label {
+    color: #a4a4a4;
+    transition: 0.2s;
+} 
 
 /* Horizontal lines on titles */
 
@@ -103,6 +126,10 @@ h3 {
     display: block;
 }
 
+.textarea_code {
+    display: none;
+}
+
 .textarea_big:focus,
 .main-input:focus {
     box-shadow: 0px 0px 1px 1px #374A8D;
@@ -145,10 +172,14 @@ h3 {
     content: "";
     width: 23px;
     height: 23px;
-    background-color: #DADADA;
     top: 0px;
     left: 0px;
+    border: 1px solid #DADADA;
 }
+
+.main-input_bg-color:after {background-color: var(--sdnote-bg-color);}
+.main-input_sd-color:after {background-color: var(--sdnote-color);}
+.main-input_border-color:after {background-color: var(--sdnote-border-color);}
 
 .main-options_color-wrp  {
     display: flex;
@@ -159,6 +190,11 @@ h3 {
 
 .main-options-left_bottom-wrp {
     margin-top: 70px;
+}
+
+.bubble_wrp {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Checkbox fixes */
@@ -176,7 +212,7 @@ h3 {
     height: 22px;
 }
 
-/* Sidenote default */
+/********** Sidenote default ***********/
 
 .sidenote {
     background-color: #2EB7B4;
@@ -192,12 +228,12 @@ h3 {
 
 .blured:hover {
     filter: blur(1px);
-    box-shadow: 0 0 10px 3px #2BB7B5;
+    box-shadow: 0 0 10px 3px var(--sdnote-bg-color);
     transition: 0.2s;
 }
 
 .shining {
-    background: linear-gradient(90deg, rgba(39,150,157,1) 70%, rgba(89,187,193,1) 75%, rgba(39,150,157,1) 100%);
+    background: linear-gradient(90deg, var(--sdnote-bg-color) 70%, rgba(89,187,193,1) 75%, var(--sdnote-bg-color) 100%);
     background-size: 300% 100%;
     transition: 0.6s;
 }
@@ -205,4 +241,65 @@ h3 {
 .shining:hover {
     background-position: 200% 0;
     transition: 1s;
+}
+
+/* Tooltip */
+
+.sidenote-tooltip_wrp {
+    position: relative;
+}
+
+.sidenote-tooltip_wrp .tooltiptext {
+    visibility: hidden;
+    font-size: 14px;
+    line-height: 20px;
+    width: 180px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    left: 125px;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidenote-tooltip_wrp .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.sidenote-tooltip_wrp:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-options_input-wrp .tooltiptext {
+    left: 92%;
+    line-height: 18px;
+}
+
+#copyInput:hover {
+    cursor: pointer;
+}
+
+#copyInput {
+    border: none;
+    width: 72px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#copyInput:focus {
+    outline: none
 }

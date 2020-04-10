@@ -13,7 +13,7 @@
  <body>
      <section class="main hl">
          <div class="main_wrp container mt-4">
-            <h1 class="main__title hl_short d-inline-block">
+            <h1 class="main__title hl_short d-inline-block" id="constructorSd">
                 Конструктор приписок
             </h1>
             <p class="main__note mt-32">
@@ -139,29 +139,59 @@
                 </div>
             </div>
             <div class="btn_wrp mt-5 mb-5 text-center">
-                <button class="btn">
-                    Готово
-                </button>
+                <a href="#resultTitle">
+                    <button class="btn" id="readyBtn">
+                        Готово
+                    </button>
+                </a>
             </div>
          </div> 
      </section>
      <section class="result hl">
         <div class="result_wrp container mt-64">
-            <h2 class="result__title hl_short d-inline-block">
+            <h2 class="result__title hl_short d-inline-block" id="resultTitle">
                 Результат
             </h2>
             <div class="result_row row">
-                <div class="result-sidenote_wrp col-xl-6 mt-5">
+                <div class="result-sidenote_wrp col-xl-6 mt-32">
                     <h3 class="result-sidenote__title">
                         Внешний вид приписки:
                     </h3>
-                    <div class="result-sidenote main_border">
+                    <div class="result-sidenote main_border mt-4">
 
                     </div>
                 </div>
+                <div class="result-source_wrp col-xl-6 mt-32">
+                    <h3 class="result-source__title">
+                        Исходный код:
+                    </h3>
+                    <div class="result-source main_border mt-4">
+                        <pre class="sourcecode" id="sourceCode">
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-group mt-32">
+                <button class="btn btn_copy" id="copyBtn">
+                    Скопировать
+                </button>
+                <a href="#constructorSd">
+                    <button class="btn btn_back ml-4" id="backBtn">
+                        Назад
+                    </button>
+                </a>
             </div>
         </div>
      </section>
+     <footer class="footer mt-64">
+        <div class="container">
+            <div class="footer-icons">
+            </div>
+            <div class="footer__author">
+                sam.geven
+            </div>
+        </div>
+     </footer>
      <script src="js/script.js"></script>
 </body>
-       

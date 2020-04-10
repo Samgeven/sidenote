@@ -1,4 +1,6 @@
-// input selectors
+
+/******************** Input behavior ********************/
+
 const sidenoteWrp = document.getElementById('sideNote'); // The sidenote itself	
 const sidenoteCont = document.getElementById('sidenoteCont'); // Sidenote container, with bubble
 const inputs = document.querySelectorAll('input');
@@ -76,17 +78,16 @@ function handleCopy() {
 }
 
 // copy functions
+
 function copyToClipboard() {
   var copyText = document.getElementById("copyInput");
+  var tooltip = document.getElementById("myTooltip");
   copyText.select();
   document.execCommand("copy");
-  
-  var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Промокод скопирован";
 }
 
 function outFuncClipboard() {
-  var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Скопировать промокод";
 }
 
@@ -98,3 +99,119 @@ inputs.forEach(input => input.addEventListener('change', handleDisabler));
 textareas.forEach(input => input.addEventListener('change', handleText));
 toggleBubble.addEventListener('change', handleBubble);
 copyCode.addEventListener('change', handleCopy);
+
+
+/******************** Source code viewing ********************/
+
+const sourceCode = document.getElementById('sourceCode'); // source code container
+
+function showCode() {
+	let blured = document.getElementById('blur');
+	let shining = document.getElementById('shining');
+	let bgColorSidenote = window.getComputedStyle(sidenoteWrp).backgroundColor; // taking computed result of bg instead of css vars in rulesets
+
+	// templates for rulesets
+
+	let templateBlur = `
+		.blured:hover {
+		    filter: blur(1px);
+		    box-shadow: 0 0 10px 3px ${bgColorSidenote};
+		    transition: 0.2s;
+		}
+	`;
+	let templateShining = `
+		.shining {
+		    background: linear-gradient(90deg, ${bgColorSidenote} 70%, rgba(89,187,193,1) 75%, ${bgColorSidenote} 100%);
+		    background-size: 300% 100%;
+		    transition: 0.6s;
+		}
+
+		.shining:hover {
+		    background-position: 200% 0;
+		    transition: 1s;
+		}
+	`;
+	let templateBubble = `
+		.sidenote-tooltip_wrp {
+		    position: relative;
+		}
+
+		.sidenote-tooltip_wrp .tooltiptext {
+		    visibility: hidden;
+		    font-size: 14px;
+		    line-height: 20px;
+		    width: 180px;
+		    background-color: #555;
+		    color: #fff;
+		    text-align: center;
+		    border-radius: 6px;
+		    padding: 5px;
+		    position: absolute;
+		    z-index: 1;
+		    bottom: 30px;
+		    left: 125px;
+		    margin-left: -75px;
+		    opacity: 0;
+		    transition: opacity 0.3s;
+		}
+
+		.sidenote-tooltip_wrp .tooltiptext::after {
+		    content: "";
+		    position: absolute;
+		    top: 100%;
+		    left: 50%;
+		    margin-left: -5px;
+		    border-width: 5px;
+		    border-style: solid;
+		    border-color: #555 transparent transparent transparent;
+		}
+
+		.sidenote-tooltip_wrp:hover .tooltiptext {
+		    visibility: visible;
+		    opacity: 1;
+		}
+	`;
+	let templateSidenote = `
+		.sidenote {
+		    background-color: #2EB7B4;
+		    text-align: center;
+		    color: white;
+		    max-width: 277px;
+		    font-size: 14px;
+		    line-height: 20px;
+		    transition: 0.2s;
+		    border-style: solid;
+		    padding: 2px;
+		}
+	`;
+	let templateScript = `
+	<script>
+		function copyToClipboard() {
+		  var copyText = document.getElementById("copyInput");
+		  copyText.select();
+		  document.execCommand("copy");
+		  tooltip.innerHTML = "Промокод скопирован";
+		}
+
+		function outFuncClipboard() {
+		  var tooltip = document.getElementById("myTooltip");
+		  tooltip.innerHTML = "Скопировать промокод";
+		}
+	</script>
+	`;
+
+	// depending on which inputs were selected, the source code will contain only needed rulesets and scripts
+
+	let styleTemplate = `
+	<style>
+		${templateSidenote}${blured.checked ? templateBlur : ''}${shining.checked ? templateShining : ''}${toggleBubble.checked ? templateBubble : ''}
+	</style>
+	`;
+
+	sourceCode.innerHTML = '';
+	copyCode.checked ? sourceCode.insertAdjacentText('afterbegin', templateScript) : '';
+	sourceCode.insertAdjacentText('afterbegin', sidenoteCont.outerHTML);
+	sourceCode.insertAdjacentText('afterbegin', styleTemplate);
+}
+
+readyBtn.addEventListener('click', showCode);

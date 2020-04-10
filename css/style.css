@@ -6,6 +6,10 @@
     --sdnote-border-color: #ffffff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.5rem;
@@ -32,6 +36,15 @@ h3 {
 textarea {
     font-size: 1rem;
     line-height: 1.25rem;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
 }
 
 .mt-32 {
@@ -305,4 +318,50 @@ textarea[disabled] + label {
 
 #copyInput:focus {
     outline: none
+}
+
+/********** Result *********/
+
+.result-sidenote,
+.result-source {
+    height: 550px;
+    overflow-y: scroll;
+}
+
+.result__title:after {
+    top: 54px;
+}
+
+.result:after {
+    top: 55px;
+}
+
+.sourcecode {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.buttons-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_back {
+    background-color: #ffffff;
+    color: #374A8D;
+    border: 2px solid #374A8D;
+    font-weight: bold;
+}
+
+.btn_back:hover {
+    color: #374A8D;
+}
+
+/******** Footer ********/
+
+.footer {
+    background-color: #DADADA;
+    color: #5E5E5E;
+    height: 80px;
+    font-weight: bold;
 }

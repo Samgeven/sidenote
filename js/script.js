@@ -79,17 +79,18 @@ function handleCopy() {
 
 // copy functions
 
-function copyToClipboard() {
-  var copyText = document.getElementById("copyInput");
-  var tooltip = document.getElementById("myTooltip");
-  copyText.select();
-  document.execCommand("copy");
-  tooltip.innerHTML = "Промокод скопирован";
-}
-
-function outFuncClipboard() {
-  tooltip.innerHTML = "Скопировать промокод";
-}
+  var copyToClipboard = function() {
+	var copyText = document.getElementById("copyInput");
+	copyText.select();
+	document.execCommand("copy");
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "Промокод скопирован";
+  }
+  
+  var outFuncClipboard = function() {
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "Скопировать промокод";
+  }
 
 // Event listeners for all input types
 
@@ -186,17 +187,18 @@ function showCode() {
 	`;
 	let templateScript = `
 	<script>
-		function copyToClipboard() {
-		  var copyText = document.getElementById("copyInput");
-		  copyText.select();
-		  document.execCommand("copy");
-		  tooltip.innerHTML = "Промокод скопирован";
-		}
-
-		function outFuncClipboard() {
-		  var tooltip = document.getElementById("myTooltip");
-		  tooltip.innerHTML = "Скопировать промокод";
-		}
+	  var copyToClipboard = function() {
+		var copyText = document.getElementById("copyInput");
+		copyText.select();
+		document.execCommand("copy");
+		var tooltip = document.getElementById("myTooltip");
+		tooltip.innerHTML = "Промокод скопирован";
+	  }
+	  
+	  var outFuncClipboard = function() {
+		var tooltip = document.getElementById("myTooltip");
+		tooltip.innerHTML = "Скопировать промокод";
+	  }
 	</script>
 	`;
 
@@ -214,4 +216,28 @@ function showCode() {
 	sourceCode.insertAdjacentText('afterbegin', styleTemplate);
 }
 
+function copySource() {
+	let virInput = document.getElementById('virInput');
+	virInput.innerHTML = sourceCode.innerText;
+	virInput.select();
+	document.execCommand("copy");
+}
+
+function toTop() {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth"
+	});
+}
+
+function insertClone() {
+	let resultNode = document.getElementById('resultSd');
+	let clone = sidenoteCont.cloneNode(true);
+	resultNode.innerHTML = '';
+	resultNode.appendChild(clone);
+}
+
+copyBtn.addEventListener('click', copySource);
+backBtn.addEventListener('click', toTop);
 readyBtn.addEventListener('click', showCode);
+readyBtn.addEventListener('click', insertClone);

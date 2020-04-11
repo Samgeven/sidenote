@@ -78,7 +78,7 @@ textarea[disabled] {
 
 input[disabled] + label,
 textarea[disabled] + label {
-    color: #a4a4a4;
+    color: #a4a4a4 !important;
     transition: 0.2s;
 } 
 
@@ -357,6 +357,11 @@ textarea[disabled] + label {
     color: #374A8D;
 }
 
+.virtual-textarea {
+    position: absolute;
+    left: -9999px;
+}
+
 /******** Footer ********/
 
 .footer {
@@ -364,4 +369,28 @@ textarea[disabled] + label {
     color: #5E5E5E;
     height: 80px;
     font-weight: bold;
+}
+
+.footer-contacts__link {
+    background: url(../img/gh.svg);
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    filter: opacity(0.5) grayscale(1);
+    transition: 0.2s;
+}
+
+.footer-contacts__link:hover {
+    transition: 0.2s;
+    filter: opacity(1) grayscale(0);
+}
+
+.footer-contacts__link + .footer-contacts__link {
+    margin-left: 16px;
+}
+
+.codepen {background: url(../img/cp.svg);}
+.footer-contacts__link.mail {
+    background: url(../img/mail.svg) no-repeat;
+    margin-left: 18px;
 }

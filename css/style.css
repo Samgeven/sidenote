@@ -90,12 +90,7 @@ textarea[disabled] + label {
 
 .hl:after,
 .hl_short:after {
-    position: absolute;
-    content: "";
-    height: 1px;
-    width: 100%;
-    background-color: #DADADA;
-    top: 77px;
+    
 }
 
 .hl_short:after {
